@@ -1,0 +1,7 @@
+keytool -keystore kafka.broker1.truststore.jks -alias ca-cert -import -file ca-cert
+keytool -keystore kafka.broker1.keystore.jks -alias broker1 -validity 3650 -genkey -keyalg RSA -ext SAN=dns:localhost
+
+keytool -keystore kafka.broker1.keystore.jks -alias broker1 -certreq -file ca-request-broker1
+openssl x509 -req -CA ca-cert -CAkey ca-key -in ca-request-broker1 -out ca-signed-broker1 -days 3650 -CAcreateserial
+keytool -keystore kafka.broker1.keystore.jks -alias ca-cert -import -file ca-cert
+keytool -keystore kafka.broker1.keystore.jks -alias broker1 -import -file ca-signed-broker1
