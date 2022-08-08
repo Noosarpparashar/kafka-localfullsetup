@@ -1,0 +1,2 @@
+[2022-08-08 09:09:15,000] INFO Authenticated Id 'CN=localhost,OU=data platform,O=its,L=Muzaffarpur,ST=Bihar,C=IN' for Scheme 'x509' (org.apache.zookeeper.server.auth.X509AuthenticationProvider)
+[2022-08-08 09:09:17,609] INFO Expiring session 0x100042d496f0009, timeout of 30000ms exceeded (org.apache.zookeeper.server.ZooKeeperServer)

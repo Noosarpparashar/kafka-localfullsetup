@@ -32,7 +32,29 @@ openssl x509 -req -CA ca-cert -CAkey ca-key -in ca-request-broker1 -out ca-signe
 keytool -keystore kafka.broker1.keystore.jks -alias ca-cert -import -file ca-cert
 keytool -keystore kafka.broker1.keystore.jks -alias broker1 -import -file ca-signed-broker1
 
+For broker2
+keytool -keystore kafka.broker2.truststore.jks -alias ca-cert -import -file ca-cert
+keytool -keystore kafka.broker2.keystore.jks -alias broker2 -validity 3650 -genkey -keyalg RSA -ext SAN=dns:localhost
+
+keytool -keystore kafka.broker2.keystore.jks -alias broker2 -certreq -file ca-request-broker2
+openssl x509 -req -CA ca-cert -CAkey ca-key -in ca-request-broker2 -out ca-signed-broker2 -days 3650 -CAcreateserial
+keytool -keystore kafka.broker2.keystore.jks -alias ca-cert -import -file ca-cert
+keytool -keystore kafka.broker2.keystore.jks -alias broker2 -import -file ca-signed-broker2
+
+
 
 +
 Add file zookeeper-client.properties
 AFter creating above keystore and trustore We need to run this file
+
+Strat zookeeper
+bin/zookeeper-shell.sh localhost:2182 -zk-tls-config-file config/zookeeper-client.properties
+Start kafka broker 1
+bin/kafka-server-start.sh config/server-1.properties
+Stoip kafka broker
+ bin/kafka-server-stop.sh config/server-0.properties
+
+CHeck list of topics
+
+SEnd producer message
+ bin/kafka-console-producer.sh --topic ssl-topic --producer.config config/producer.properties --broker-list localhost:9092,localhost:9093
