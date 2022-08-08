@@ -1,10 +1,253 @@
-[2022-08-08 22:28:18,315] DEBUG [Controller id=1] Broker 2 was elected as controller instead of broker 1 (kafka.controller.KafkaController)
-org.apache.kafka.common.errors.ControllerMovedException: Controller moved to another broker. Aborting controller startup procedure
-[2022-08-08 22:28:23,372] INFO [ControllerEventThread controllerId=1] Shutting down (kafka.controller.ControllerEventManager$ControllerEventThread)
-[2022-08-08 22:28:23,372] INFO [ControllerEventThread controllerId=1] Shutdown completed (kafka.controller.ControllerEventManager$ControllerEventThread)
-[2022-08-08 22:28:23,372] INFO [ControllerEventThread controllerId=1] Stopped (kafka.controller.ControllerEventManager$ControllerEventThread)
-[2022-08-08 22:28:23,372] DEBUG [Controller id=1] Resigning (kafka.controller.KafkaController)
-[2022-08-08 22:28:23,373] DEBUG [Controller id=1] Unregister BrokerModifications handler for Set() (kafka.controller.KafkaController)
-[2022-08-08 22:28:23,373] INFO [PartitionStateMachine controllerId=1] Stopped partition state machine (kafka.controller.ZkPartitionStateMachine)
-[2022-08-08 22:28:23,374] INFO [ReplicaStateMachine controllerId=1] Stopped replica state machine (kafka.controller.ZkReplicaStateMachine)
-[2022-08-08 22:28:23,375] INFO [Controller id=1] Resigned (kafka.controller.KafkaController)
+[2022-08-08 23:15:30,578] INFO [ControllerEventThread controllerId=0] Starting (kafka.controller.ControllerEventManager$ControllerEventThread)
+[2022-08-08 23:15:30,594] INFO [Controller id=0] 0 successfully elected as the controller. Epoch incremented to 14 and epoch zk version is now 14 (kafka.controller.KafkaController)
+[2022-08-08 23:15:30,600] INFO [Controller id=0] Registering handlers (kafka.controller.KafkaController)
+[2022-08-08 23:15:30,604] INFO [Controller id=0] Deleting log dir event notifications (kafka.controller.KafkaController)
+[2022-08-08 23:15:30,607] INFO [Controller id=0] Deleting isr change notifications (kafka.controller.KafkaController)
+[2022-08-08 23:15:30,614] INFO [Controller id=0] Initializing controller context (kafka.controller.KafkaController)
+[2022-08-08 23:15:30,625] INFO [Controller id=0] Initialized broker epochs cache: HashMap(0 -> 513) (kafka.controller.KafkaController)
+[2022-08-08 23:15:30,636] DEBUG [Controller id=0] Register BrokerModifications handler for Set(0) (kafka.controller.KafkaController)
+[2022-08-08 23:15:30,646] DEBUG [Channel manager on controller 0]: Controller 0 trying to connect to broker 0 (kafka.controller.ControllerChannelManager)
+[2022-08-08 23:15:30,736] INFO [RequestSendThread controllerId=0] Starting (kafka.controller.RequestSendThread)
+[2022-08-08 23:15:30,737] INFO [Controller id=0] Currently active brokers in the cluster: Set(0) (kafka.controller.KafkaController)
+[2022-08-08 23:15:30,737] INFO [Controller id=0] Currently shutting brokers in the cluster: HashSet() (kafka.controller.KafkaController)
+[2022-08-08 23:15:30,737] INFO [Controller id=0] Current list of topics in the cluster: HashSet(ssl-topic) (kafka.controller.KafkaController)
+[2022-08-08 23:15:30,737] INFO [Controller id=0] Fetching topic deletions in progress (kafka.controller.KafkaController)
+[2022-08-08 23:15:30,740] INFO [Controller id=0] List of topics to be deleted:  (kafka.controller.KafkaController)
+[2022-08-08 23:15:30,741] INFO [Controller id=0] List of topics ineligible for deletion: ssl-topic (kafka.controller.KafkaController)
+[2022-08-08 23:15:30,741] INFO [Controller id=0] Initializing topic deletion manager (kafka.controller.KafkaController)
+[2022-08-08 23:15:30,741] INFO [Topic Deletion Manager 0] Initializing manager with initial deletions: Set(), initial ineligible deletions: HashSet(ssl-topic) (kafka.controller.TopicDeletionManager)
+[2022-08-08 23:15:30,742] INFO [Controller id=0] Sending update metadata request (kafka.controller.KafkaController)
+[2022-08-08 23:15:30,748] INFO [ReplicaStateMachine controllerId=0] Initializing replica state (kafka.controller.ZkReplicaStateMachine)
+[2022-08-08 23:15:30,755] INFO [ReplicaStateMachine controllerId=0] Triggering online replica state changes (kafka.controller.ZkReplicaStateMachine)
+[2022-08-08 23:15:30,766] INFO [ReplicaStateMachine controllerId=0] Triggering offline replica state changes (kafka.controller.ZkReplicaStateMachine)
+[2022-08-08 23:15:30,785] DEBUG [ReplicaStateMachine controllerId=0] Started replica state machine with initial state -> HashMap([Topic=ssl-topic,Partition=0,Replica=2] -> OfflineReplica, [Topic=ssl-topic,Partition=1,Replica=1] -> OfflineReplica, [Topic=ssl-topic,Partition=2,Replica=0] -> OnlineReplica) (kafka.controller.ZkReplicaStateMachine)
+[2022-08-08 23:15:30,785] INFO [PartitionStateMachine controllerId=0] Initializing partition state (kafka.controller.ZkPartitionStateMachine)
+[2022-08-08 23:15:30,787] INFO [PartitionStateMachine controllerId=0] Triggering online partition state changes (kafka.controller.ZkPartitionStateMachine)
+[2022-08-08 23:15:30,807] DEBUG [PartitionStateMachine controllerId=0] Started partition state machine with initial state -> HashMap(ssl-topic-1 -> OfflinePartition, ssl-topic-0 -> OfflinePartition, ssl-topic-2 -> OnlinePartition) (kafka.controller.ZkPartitionStateMachine)
+[2022-08-08 23:15:30,807] INFO [Controller id=0] Ready to serve as the new controller with epoch 14 (kafka.controller.KafkaController)
+[2022-08-08 23:15:30,811] INFO [Controller id=0] Partitions undergoing preferred replica election:  (kafka.controller.KafkaController)
+[2022-08-08 23:15:30,811] INFO [Controller id=0] Partitions that completed preferred replica election:  (kafka.controller.KafkaController)
+[2022-08-08 23:15:30,811] INFO [Controller id=0] Skipping preferred replica election for partitions due to topic deletion:  (kafka.controller.KafkaController)
+[2022-08-08 23:15:30,811] INFO [Controller id=0] Resuming preferred replica election for partitions:  (kafka.controller.KafkaController)
+[2022-08-08 23:15:30,812] INFO [Controller id=0] Starting replica leader election (PREFERRED) for partitions  triggered by ZkTriggered (kafka.controller.KafkaController)
+[2022-08-08 23:15:30,817] INFO [Controller id=0] Starting the controller scheduler (kafka.controller.KafkaController)
+[2022-08-08 23:15:31,403] WARN [RequestSendThread controllerId=0] Controller 0's connection to broker localhost:9092 (id: 0 rack: null) was unsuccessful (kafka.controller.RequestSendThread)
+org.apache.kafka.common.errors.SaslAuthenticationException: Authentication failed during authentication due to invalid credentials with SASL mechanism SCRAM-SHA-512
+[2022-08-08 23:15:31,870] WARN [RequestSendThread controllerId=0] Controller 0's connection to broker localhost:9092 (id: 0 rack: null) was unsuccessful (kafka.controller.RequestSendThread)
+org.apache.kafka.common.errors.SaslAuthenticationException: Authentication failed during authentication due to invalid credentials with SASL mechanism SCRAM-SHA-512
+[2022-08-08 23:15:32,346] WARN [RequestSendThread controllerId=0] Controller 0's connection to broker localhost:9092 (id: 0 rack: null) was unsuccessful (kafka.controller.RequestSendThread)
+org.apache.kafka.common.errors.SaslAuthenticationException: Authentication failed during authentication due to invalid credentials with SASL mechanism SCRAM-SHA-512
+[2022-08-08 23:15:32,810] WARN [RequestSendThread controllerId=0] Controller 0's connection to broker localhost:9092 (id: 0 rack: null) was unsuccessful (kafka.controller.RequestSendThread)
+org.apache.kafka.common.errors.SaslAuthenticationException: Authentication failed during authentication due to invalid credentials with SASL mechanism SCRAM-SHA-512
+[2022-08-08 23:15:33,273] WARN [RequestSendThread controllerId=0] Controller 0's connection to broker localhost:9092 (id: 0 rack: null) was unsuccessful (kafka.controller.RequestSendThread)
+org.apache.kafka.common.errors.SaslAuthenticationException: Authentication failed during authentication due to invalid credentials with SASL mechanism SCRAM-SHA-512
+[2022-08-08 23:15:33,726] WARN [RequestSendThread controllerId=0] Controller 0's connection to broker localhost:9092 (id: 0 rack: null) was unsuccessful (kafka.controller.RequestSendThread)
+org.apache.kafka.common.errors.SaslAuthenticationException: Authentication failed during authentication due to invalid credentials with SASL mechanism SCRAM-SHA-512
+[2022-08-08 23:15:34,183] WARN [RequestSendThread controllerId=0] Controller 0's connection to broker localhost:9092 (id: 0 rack: null) was unsuccessful (kafka.controller.RequestSendThread)
+org.apache.kafka.common.errors.SaslAuthenticationException: Authentication failed during authentication due to invalid credentials with SASL mechanism SCRAM-SHA-512
+[2022-08-08 23:15:34,651] WARN [RequestSendThread controllerId=0] Controller 0's connection to broker localhost:9092 (id: 0 rack: null) was unsuccessful (kafka.controller.RequestSendThread)
+org.apache.kafka.common.errors.SaslAuthenticationException: Authentication failed during authentication due to invalid credentials with SASL mechanism SCRAM-SHA-512
+[2022-08-08 23:15:35,107] WARN [RequestSendThread controllerId=0] Controller 0's connection to broker localhost:9092 (id: 0 rack: null) was unsuccessful (kafka.controller.RequestSendThread)
+org.apache.kafka.common.errors.SaslAuthenticationException: Authentication failed during authentication due to invalid credentials with SASL mechanism SCRAM-SHA-512
+[2022-08-08 23:15:35,542] WARN [RequestSendThread controllerId=0] Controller 0's connection to broker localhost:9092 (id: 0 rack: null) was unsuccessful (kafka.controller.RequestSendThread)
+org.apache.kafka.common.errors.SaslAuthenticationException: Authentication failed during authentication due to invalid credentials with SASL mechanism SCRAM-SHA-512
+[2022-08-08 23:15:35,819] INFO [Controller id=0] Processing automatic preferred replica leader election (kafka.controller.KafkaController)
+[2022-08-08 23:15:35,820] TRACE [Controller id=0] Checking need to trigger auto leader balancing (kafka.controller.KafkaController)
+[2022-08-08 23:15:35,827] DEBUG [Controller id=0] Topics not in preferred replica for broker 0 Map() (kafka.controller.KafkaController)
+[2022-08-08 23:15:35,829] TRACE [Controller id=0] Leader imbalance ratio for broker 0 is 0.0 (kafka.controller.KafkaController)
+[2022-08-08 23:15:35,829] DEBUG [Controller id=0] Topics not in preferred replica for broker 1 Map(ssl-topic-1 -> List(1)) (kafka.controller.KafkaController)
+[2022-08-08 23:15:35,829] TRACE [Controller id=0] Leader imbalance ratio for broker 1 is 1.0 (kafka.controller.KafkaController)
+[2022-08-08 23:15:35,833] INFO [Controller id=0] Starting replica leader election (PREFERRED) for partitions  triggered by AutoTriggered (kafka.controller.KafkaController)
+[2022-08-08 23:15:35,834] DEBUG [Controller id=0] Topics not in preferred replica for broker 2 Map(ssl-topic-0 -> List(2)) (kafka.controller.KafkaController)
+[2022-08-08 23:15:35,834] TRACE [Controller id=0] Leader imbalance ratio for broker 2 is 1.0 (kafka.controller.KafkaController)
+[2022-08-08 23:15:35,834] INFO [Controller id=0] Starting replica leader election (PREFERRED) for partitions  triggered by AutoTriggered (kafka.controller.KafkaController)
+[2022-08-08 23:15:36,004] WARN [RequestSendThread controllerId=0] Controller 0's connection to broker localhost:9092 (id: 0 rack: null) was unsuccessful (kafka.controller.RequestSendThread)
+org.apache.kafka.common.errors.SaslAuthenticationException: Authentication failed during authentication due to invalid credentials with SASL mechanism SCRAM-SHA-512
+[2022-08-08 23:15:36,454] WARN [RequestSendThread controllerId=0] Controller 0's connection to broker localhost:9092 (id: 0 rack: null) was unsuccessful (kafka.controller.RequestSendThread)
+org.apache.kafka.common.errors.SaslAuthenticationException: Authentication failed during authentication due to invalid credentials with SASL mechanism SCRAM-SHA-512
+[2022-08-08 23:15:36,909] WARN [RequestSendThread controllerId=0] Controller 0's connection to broker localhost:9092 (id: 0 rack: null) was unsuccessful (kafka.controller.RequestSendThread)
+org.apache.kafka.common.errors.SaslAuthenticationException: Authentication failed during authentication due to invalid credentials with SASL mechanism SCRAM-SHA-512
+[2022-08-08 23:15:37,374] WARN [RequestSendThread controllerId=0] Controller 0's connection to broker localhost:9092 (id: 0 rack: null) was unsuccessful (kafka.controller.RequestSendThread)
+org.apache.kafka.common.errors.SaslAuthenticationException: Authentication failed during authentication due to invalid credentials with SASL mechanism SCRAM-SHA-512
+[2022-08-08 23:15:37,843] WARN [RequestSendThread controllerId=0] Controller 0's connection to broker localhost:9092 (id: 0 rack: null) was unsuccessful (kafka.controller.RequestSendThread)
+org.apache.kafka.common.errors.SaslAuthenticationException: Authentication failed during authentication due to invalid credentials with SASL mechanism SCRAM-SHA-512
+[2022-08-08 23:15:38,266] WARN [RequestSendThread controllerId=0] Controller 0's connection to broker localhost:9092 (id: 0 rack: null) was unsuccessful (kafka.controller.RequestSendThread)
+org.apache.kafka.common.errors.SaslAuthenticationException: Authentication failed during authentication due to invalid credentials with SASL mechanism SCRAM-SHA-512
+[2022-08-08 23:15:38,732] WARN [RequestSendThread controllerId=0] Controller 0's connection to broker localhost:9092 (id: 0 rack: null) was unsuccessful (kafka.controller.RequestSendThread)
+org.apache.kafka.common.errors.SaslAuthenticationException: Authentication failed during authentication due to invalid credentials with SASL mechanism SCRAM-SHA-512
+[2022-08-08 23:15:39,191] WARN [RequestSendThread controllerId=0] Controller 0's connection to broker localhost:9092 (id: 0 rack: null) was unsuccessful (kafka.controller.RequestSendThread)
+org.apache.kafka.common.errors.SaslAuthenticationException: Authentication failed during authentication due to invalid credentials with SASL mechanism SCRAM-SHA-512
+[2022-08-08 23:15:39,641] WARN [RequestSendThread controllerId=0] Controller 0's connection to broker localhost:9092 (id: 0 rack: null) was unsuccessful (kafka.controller.RequestSendThread)
+org.apache.kafka.common.errors.SaslAuthenticationException: Authentication failed during authentication due to invalid credentials with SASL mechanism SCRAM-SHA-512
+[2022-08-08 23:15:40,108] WARN [RequestSendThread controllerId=0] Controller 0's connection to broker localhost:9092 (id: 0 rack: null) was unsuccessful (kafka.controller.RequestSendThread)
+org.apache.kafka.common.errors.SaslAuthenticationException: Authentication failed during authentication due to invalid credentials with SASL mechanism SCRAM-SHA-512
+[2022-08-08 23:15:40,569] WARN [RequestSendThread controllerId=0] Controller 0's connection to broker localhost:9092 (id: 0 rack: null) was unsuccessful (kafka.controller.RequestSendThread)
+org.apache.kafka.common.errors.SaslAuthenticationException: Authentication failed during authentication due to invalid credentials with SASL mechanism SCRAM-SHA-512
+[2022-08-08 23:15:41,035] WARN [RequestSendThread controllerId=0] Controller 0's connection to broker localhost:9092 (id: 0 rack: null) was unsuccessful (kafka.controller.RequestSendThread)
+org.apache.kafka.common.errors.SaslAuthenticationException: Authentication failed during authentication due to invalid credentials with SASL mechanism SCRAM-SHA-512
+[2022-08-08 23:15:41,498] WARN [RequestSendThread controllerId=0] Controller 0's connection to broker localhost:9092 (id: 0 rack: null) was unsuccessful (kafka.controller.RequestSendThread)
+org.apache.kafka.common.errors.SaslAuthenticationException: Authentication failed during authentication due to invalid credentials with SASL mechanism SCRAM-SHA-512
+[2022-08-08 23:15:41,939] WARN [RequestSendThread controllerId=0] Controller 0's connection to broker localhost:9092 (id: 0 rack: null) was unsuccessful (kafka.controller.RequestSendThread)
+org.apache.kafka.common.errors.SaslAuthenticationException: Authentication failed during authentication due to invalid credentials with SASL mechanism SCRAM-SHA-512
+[2022-08-08 23:15:42,398] WARN [RequestSendThread controllerId=0] Controller 0's connection to broker localhost:9092 (id: 0 rack: null) was unsuccessful (kafka.controller.RequestSendThread)
+org.apache.kafka.common.errors.SaslAuthenticationException: Authentication failed during authentication due to invalid credentials with SASL mechanism SCRAM-SHA-512
+[2022-08-08 23:15:42,859] WARN [RequestSendThread controllerId=0] Controller 0's connection to broker localhost:9092 (id: 0 rack: null) was unsuccessful (kafka.controller.RequestSendThread)
+org.apache.kafka.common.errors.SaslAuthenticationException: Authentication failed during authentication due to invalid credentials with SASL mechanism SCRAM-SHA-512
+[2022-08-08 23:15:43,321] WARN [RequestSendThread controllerId=0] Controller 0's connection to broker localhost:9092 (id: 0 rack: null) was unsuccessful (kafka.controller.RequestSendThread)
+org.apache.kafka.common.errors.SaslAuthenticationException: Authentication failed during authentication due to invalid credentials with SASL mechanism SCRAM-SHA-512
+[2022-08-08 23:15:43,753] WARN [RequestSendThread controllerId=0] Controller 0's connection to broker localhost:9092 (id: 0 rack: null) was unsuccessful (kafka.controller.RequestSendThread)
+org.apache.kafka.common.errors.SaslAuthenticationException: Authentication failed during authentication due to invalid credentials with SASL mechanism SCRAM-SHA-512
+[2022-08-08 23:15:44,217] WARN [RequestSendThread controllerId=0] Controller 0's connection to broker localhost:9092 (id: 0 rack: null) was unsuccessful (kafka.controller.RequestSendThread)
+org.apache.kafka.common.errors.SaslAuthenticationException: Authentication failed during authentication due to invalid credentials with SASL mechanism SCRAM-SHA-512
+[2022-08-08 23:15:44,674] WARN [RequestSendThread controllerId=0] Controller 0's connection to broker localhost:9092 (id: 0 rack: null) was unsuccessful (kafka.controller.RequestSendThread)
+org.apache.kafka.common.errors.SaslAuthenticationException: Authentication failed during authentication due to invalid credentials with SASL mechanism SCRAM-SHA-512
+[2022-08-08 23:15:45,136] WARN [RequestSendThread controllerId=0] Controller 0's connection to broker localhost:9092 (id: 0 rack: null) was unsuccessful (kafka.controller.RequestSendThread)
+org.apache.kafka.common.errors.SaslAuthenticationException: Authentication failed during authentication due to invalid credentials with SASL mechanism SCRAM-SHA-512
+[2022-08-08 23:15:45,599] WARN [RequestSendThread controllerId=0] Controller 0's connection to broker localhost:9092 (id: 0 rack: null) was unsuccessful (kafka.controller.RequestSendThread)
+org.apache.kafka.common.errors.SaslAuthenticationException: Authentication failed during authentication due to invalid credentials with SASL mechanism SCRAM-SHA-512
+[2022-08-08 23:15:46,058] WARN [RequestSendThread controllerId=0] Controller 0's connection to broker localhost:9092 (id: 0 rack: null) was unsuccessful (kafka.controller.RequestSendThread)
+org.apache.kafka.common.errors.SaslAuthenticationException: Authentication failed during authentication due to invalid credentials with SASL mechanism SCRAM-SHA-512
+[2022-08-08 23:15:46,491] WARN [RequestSendThread controllerId=0] Controller 0's connection to broker localhost:9092 (id: 0 rack: null) was unsuccessful (kafka.controller.RequestSendThread)
+org.apache.kafka.common.errors.SaslAuthenticationException: Authentication failed during authentication due to invalid credentials with SASL mechanism SCRAM-SHA-512
+[2022-08-08 23:15:46,930] WARN [RequestSendThread controllerId=0] Controller 0's connection to broker localhost:9092 (id: 0 rack: null) was unsuccessful (kafka.controller.RequestSendThread)
+org.apache.kafka.common.errors.SaslAuthenticationException: Authentication failed during authentication due to invalid credentials with SASL mechanism SCRAM-SHA-512
+[2022-08-08 23:15:47,355] WARN [RequestSendThread controllerId=0] Controller 0's connection to broker localhost:9092 (id: 0 rack: null) was unsuccessful (kafka.controller.RequestSendThread)
+org.apache.kafka.common.errors.SaslAuthenticationException: Authentication failed during authentication due to invalid credentials with SASL mechanism SCRAM-SHA-512
+[2022-08-08 23:15:47,803] WARN [RequestSendThread controllerId=0] Controller 0's connection to broker localhost:9092 (id: 0 rack: null) was unsuccessful (kafka.controller.RequestSendThread)
+org.apache.kafka.common.errors.SaslAuthenticationException: Authentication failed during authentication due to invalid credentials with SASL mechanism SCRAM-SHA-512
+[2022-08-08 23:15:48,263] WARN [RequestSendThread controllerId=0] Controller 0's connection to broker localhost:9092 (id: 0 rack: null) was unsuccessful (kafka.controller.RequestSendThread)
+org.apache.kafka.common.errors.SaslAuthenticationException: Authentication failed during authentication due to invalid credentials with SASL mechanism SCRAM-SHA-512
+[2022-08-08 23:15:48,726] WARN [RequestSendThread controllerId=0] Controller 0's connection to broker localhost:9092 (id: 0 rack: null) was unsuccessful (kafka.controller.RequestSendThread)
+org.apache.kafka.common.errors.SaslAuthenticationException: Authentication failed during authentication due to invalid credentials with SASL mechanism SCRAM-SHA-512
+[2022-08-08 23:15:49,185] WARN [RequestSendThread controllerId=0] Controller 0's connection to broker localhost:9092 (id: 0 rack: null) was unsuccessful (kafka.controller.RequestSendThread)
+org.apache.kafka.common.errors.SaslAuthenticationException: Authentication failed during authentication due to invalid credentials with SASL mechanism SCRAM-SHA-512
+[2022-08-08 23:15:49,602] WARN [RequestSendThread controllerId=0] Controller 0's connection to broker localhost:9092 (id: 0 rack: null) was unsuccessful (kafka.controller.RequestSendThread)
+org.apache.kafka.common.errors.SaslAuthenticationException: Authentication failed during authentication due to invalid credentials with SASL mechanism SCRAM-SHA-512
+[2022-08-08 23:15:50,065] WARN [RequestSendThread controllerId=0] Controller 0's connection to broker localhost:9092 (id: 0 rack: null) was unsuccessful (kafka.controller.RequestSendThread)
+org.apache.kafka.common.errors.SaslAuthenticationException: Authentication failed during authentication due to invalid credentials with SASL mechanism SCRAM-SHA-512
+[2022-08-08 23:15:50,516] WARN [RequestSendThread controllerId=0] Controller 0's connection to broker localhost:9092 (id: 0 rack: null) was unsuccessful (kafka.controller.RequestSendThread)
+org.apache.kafka.common.errors.SaslAuthenticationException: Authentication failed during authentication due to invalid credentials with SASL mechanism SCRAM-SHA-512
+[2022-08-08 23:15:50,974] WARN [RequestSendThread controllerId=0] Controller 0's connection to broker localhost:9092 (id: 0 rack: null) was unsuccessful (kafka.controller.RequestSendThread)
+org.apache.kafka.common.errors.SaslAuthenticationException: Authentication failed during authentication due to invalid credentials with SASL mechanism SCRAM-SHA-512
+[2022-08-08 23:15:51,433] WARN [RequestSendThread controllerId=0] Controller 0's connection to broker localhost:9092 (id: 0 rack: null) was unsuccessful (kafka.controller.RequestSendThread)
+org.apache.kafka.common.errors.SaslAuthenticationException: Authentication failed during authentication due to invalid credentials with SASL mechanism SCRAM-SHA-512
+[2022-08-08 23:15:51,893] WARN [RequestSendThread controllerId=0] Controller 0's connection to broker localhost:9092 (id: 0 rack: null) was unsuccessful (kafka.controller.RequestSendThread)
+org.apache.kafka.common.errors.SaslAuthenticationException: Authentication failed during authentication due to invalid credentials with SASL mechanism SCRAM-SHA-512
+[2022-08-08 23:15:52,361] WARN [RequestSendThread controllerId=0] Controller 0's connection to broker localhost:9092 (id: 0 rack: null) was unsuccessful (kafka.controller.RequestSendThread)
+org.apache.kafka.common.errors.SaslAuthenticationException: Authentication failed during authentication due to invalid credentials with SASL mechanism SCRAM-SHA-512
+[2022-08-08 23:15:52,821] WARN [RequestSendThread controllerId=0] Controller 0's connection to broker localhost:9092 (id: 0 rack: null) was unsuccessful (kafka.controller.RequestSendThread)
+org.apache.kafka.common.errors.SaslAuthenticationException: Authentication failed during authentication due to invalid credentials with SASL mechanism SCRAM-SHA-512
+[2022-08-08 23:15:53,272] WARN [RequestSendThread controllerId=0] Controller 0's connection to broker localhost:9092 (id: 0 rack: null) was unsuccessful (kafka.controller.RequestSendThread)
+org.apache.kafka.common.errors.SaslAuthenticationException: Authentication failed during authentication due to invalid credentials with SASL mechanism SCRAM-SHA-512
+[2022-08-08 23:15:53,736] WARN [RequestSendThread controllerId=0] Controller 0's connection to broker localhost:9092 (id: 0 rack: null) was unsuccessful (kafka.controller.RequestSendThread)
+org.apache.kafka.common.errors.SaslAuthenticationException: Authentication failed during authentication due to invalid credentials with SASL mechanism SCRAM-SHA-512
+[2022-08-08 23:15:54,060] WARN [RequestSendThread controllerId=0] Controller 0's connection to broker localhost:9092 (id: 0 rack: null) was unsuccessful (kafka.controller.RequestSendThread)
+org.apache.kafka.common.errors.SaslAuthenticationException: Authentication failed during authentication due to invalid credentials with SASL mechanism SCRAM-SHA-512
+[2022-08-08 23:15:54,121] INFO [ControllerEventThread controllerId=0] Shutting down (kafka.controller.ControllerEventManager$ControllerEventThread)
+[2022-08-08 23:15:54,121] INFO [ControllerEventThread controllerId=0] Shutdown completed (kafka.controller.ControllerEventManager$ControllerEventThread)
+[2022-08-08 23:15:54,121] INFO [ControllerEventThread controllerId=0] Stopped (kafka.controller.ControllerEventManager$ControllerEventThread)
+[2022-08-08 23:15:54,121] DEBUG [Controller id=0] Resigning (kafka.controller.KafkaController)
+[2022-08-08 23:15:54,122] DEBUG [Controller id=0] Unregister BrokerModifications handler for Set(0) (kafka.controller.KafkaController)
+[2022-08-08 23:15:54,122] INFO [PartitionStateMachine controllerId=0] Stopped partition state machine (kafka.controller.ZkPartitionStateMachine)
+[2022-08-08 23:15:54,123] INFO [ReplicaStateMachine controllerId=0] Stopped replica state machine (kafka.controller.ZkReplicaStateMachine)
+[2022-08-08 23:15:54,123] INFO [RequestSendThread controllerId=0] Shutting down (kafka.controller.RequestSendThread)
+[2022-08-08 23:15:54,124] WARN [RequestSendThread controllerId=0] Controller 0 epoch 14 fails to send request (type: UpdateMetadataRequest=, controllerId=0, controllerEpoch=14, brokerEpoch=513, partitionStates=[], liveBrokers=UpdateMetadataBroker(id=0, v0Host='', v0Port=0, endpoints=[UpdateMetadataEndpoint(port=9092, host='localhost', listener='SASL_SSL', securityProtocol=3)], rack=null)) to broker localhost:9092 (id: 0 rack: null). Reconnecting to broker. (kafka.controller.RequestSendThread)
+java.lang.InterruptedException
+	at java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer.doAcquireSharedNanos(AbstractQueuedSynchronizer.java:1081)
+	at java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer.tryAcquireSharedNanos(AbstractQueuedSynchronizer.java:1369)
+	at java.base/java.util.concurrent.CountDownLatch.await(CountDownLatch.java:278)
+	at kafka.utils.ShutdownableThread.pause(ShutdownableThread.scala:82)
+	at kafka.controller.RequestSendThread.doWork(ControllerChannelManager.scala:233)
+	at kafka.utils.ShutdownableThread.run(ShutdownableThread.scala:96)
+[2022-08-08 23:15:54,124] TRACE [RequestSendThread controllerId=0] shutdownInitiated latch count reached zero. Shutdown called. (kafka.controller.RequestSendThread)
+[2022-08-08 23:15:54,124] INFO [RequestSendThread controllerId=0] Stopped (kafka.controller.RequestSendThread)
+[2022-08-08 23:15:54,124] INFO [RequestSendThread controllerId=0] Shutdown completed (kafka.controller.RequestSendThread)
+[2022-08-08 23:15:54,125] INFO [Controller id=0] Resigned (kafka.controller.KafkaController)
+[2022-08-08 23:18:39,874] INFO [ControllerEventThread controllerId=0] Starting (kafka.controller.ControllerEventManager$ControllerEventThread)
+[2022-08-08 23:18:39,892] INFO [Controller id=0] 0 successfully elected as the controller. Epoch incremented to 15 and epoch zk version is now 15 (kafka.controller.KafkaController)
+[2022-08-08 23:18:39,894] INFO [Controller id=0] Registering handlers (kafka.controller.KafkaController)
+[2022-08-08 23:18:39,899] INFO [Controller id=0] Deleting log dir event notifications (kafka.controller.KafkaController)
+[2022-08-08 23:18:39,902] INFO [Controller id=0] Deleting isr change notifications (kafka.controller.KafkaController)
+[2022-08-08 23:18:39,904] INFO [Controller id=0] Initializing controller context (kafka.controller.KafkaController)
+[2022-08-08 23:18:39,918] INFO [Controller id=0] Initialized broker epochs cache: HashMap(0 -> 554) (kafka.controller.KafkaController)
+[2022-08-08 23:18:39,931] DEBUG [Controller id=0] Register BrokerModifications handler for Set(0) (kafka.controller.KafkaController)
+[2022-08-08 23:18:39,942] DEBUG [Channel manager on controller 0]: Controller 0 trying to connect to broker 0 (kafka.controller.ControllerChannelManager)
+[2022-08-08 23:18:40,028] INFO [RequestSendThread controllerId=0] Starting (kafka.controller.RequestSendThread)
+[2022-08-08 23:18:40,029] INFO [Controller id=0] Currently active brokers in the cluster: Set(0) (kafka.controller.KafkaController)
+[2022-08-08 23:18:40,032] INFO [Controller id=0] Currently shutting brokers in the cluster: HashSet() (kafka.controller.KafkaController)
+[2022-08-08 23:18:40,032] INFO [Controller id=0] Current list of topics in the cluster: HashSet(ssl-topic) (kafka.controller.KafkaController)
+[2022-08-08 23:18:40,032] INFO [Controller id=0] Fetching topic deletions in progress (kafka.controller.KafkaController)
+[2022-08-08 23:18:40,036] INFO [Controller id=0] List of topics to be deleted:  (kafka.controller.KafkaController)
+[2022-08-08 23:18:40,036] INFO [Controller id=0] List of topics ineligible for deletion: ssl-topic (kafka.controller.KafkaController)
+[2022-08-08 23:18:40,036] INFO [Controller id=0] Initializing topic deletion manager (kafka.controller.KafkaController)
+[2022-08-08 23:18:40,036] INFO [Topic Deletion Manager 0] Initializing manager with initial deletions: Set(), initial ineligible deletions: HashSet(ssl-topic) (kafka.controller.TopicDeletionManager)
+[2022-08-08 23:18:40,037] INFO [Controller id=0] Sending update metadata request (kafka.controller.KafkaController)
+[2022-08-08 23:18:40,046] INFO [ReplicaStateMachine controllerId=0] Initializing replica state (kafka.controller.ZkReplicaStateMachine)
+[2022-08-08 23:18:40,049] INFO [ReplicaStateMachine controllerId=0] Triggering online replica state changes (kafka.controller.ZkReplicaStateMachine)
+[2022-08-08 23:18:40,067] INFO [ReplicaStateMachine controllerId=0] Triggering offline replica state changes (kafka.controller.ZkReplicaStateMachine)
+[2022-08-08 23:18:40,087] DEBUG [ReplicaStateMachine controllerId=0] Started replica state machine with initial state -> HashMap([Topic=ssl-topic,Partition=0,Replica=2] -> OfflineReplica, [Topic=ssl-topic,Partition=1,Replica=1] -> OfflineReplica, [Topic=ssl-topic,Partition=2,Replica=0] -> OnlineReplica) (kafka.controller.ZkReplicaStateMachine)
+[2022-08-08 23:18:40,087] INFO [PartitionStateMachine controllerId=0] Initializing partition state (kafka.controller.ZkPartitionStateMachine)
+[2022-08-08 23:18:40,089] INFO [PartitionStateMachine controllerId=0] Triggering online partition state changes (kafka.controller.ZkPartitionStateMachine)
+[2022-08-08 23:18:40,107] DEBUG [PartitionStateMachine controllerId=0] Started partition state machine with initial state -> HashMap(ssl-topic-1 -> OfflinePartition, ssl-topic-0 -> OfflinePartition, ssl-topic-2 -> OnlinePartition) (kafka.controller.ZkPartitionStateMachine)
+[2022-08-08 23:18:40,107] INFO [Controller id=0] Ready to serve as the new controller with epoch 15 (kafka.controller.KafkaController)
+[2022-08-08 23:18:40,111] INFO [Controller id=0] Partitions undergoing preferred replica election:  (kafka.controller.KafkaController)
+[2022-08-08 23:18:40,111] INFO [Controller id=0] Partitions that completed preferred replica election:  (kafka.controller.KafkaController)
+[2022-08-08 23:18:40,111] INFO [Controller id=0] Skipping preferred replica election for partitions due to topic deletion:  (kafka.controller.KafkaController)
+[2022-08-08 23:18:40,112] INFO [Controller id=0] Resuming preferred replica election for partitions:  (kafka.controller.KafkaController)
+[2022-08-08 23:18:40,112] INFO [Controller id=0] Starting replica leader election (PREFERRED) for partitions  triggered by ZkTriggered (kafka.controller.KafkaController)
+[2022-08-08 23:18:40,118] INFO [Controller id=0] Starting the controller scheduler (kafka.controller.KafkaController)
+[2022-08-08 23:18:40,377] INFO [RequestSendThread controllerId=0] Controller 0 connected to localhost:9092 (id: 0 rack: null) for sending state change requests (kafka.controller.RequestSendThread)
+[2022-08-08 23:18:45,120] INFO [Controller id=0] Processing automatic preferred replica leader election (kafka.controller.KafkaController)
+[2022-08-08 23:18:45,121] TRACE [Controller id=0] Checking need to trigger auto leader balancing (kafka.controller.KafkaController)
+[2022-08-08 23:18:45,128] DEBUG [Controller id=0] Topics not in preferred replica for broker 0 Map() (kafka.controller.KafkaController)
+[2022-08-08 23:18:45,131] TRACE [Controller id=0] Leader imbalance ratio for broker 0 is 0.0 (kafka.controller.KafkaController)
+[2022-08-08 23:18:45,131] DEBUG [Controller id=0] Topics not in preferred replica for broker 1 Map(ssl-topic-1 -> List(1)) (kafka.controller.KafkaController)
+[2022-08-08 23:18:45,131] TRACE [Controller id=0] Leader imbalance ratio for broker 1 is 1.0 (kafka.controller.KafkaController)
+[2022-08-08 23:18:45,134] INFO [Controller id=0] Starting replica leader election (PREFERRED) for partitions  triggered by AutoTriggered (kafka.controller.KafkaController)
+[2022-08-08 23:18:45,134] DEBUG [Controller id=0] Topics not in preferred replica for broker 2 Map(ssl-topic-0 -> List(2)) (kafka.controller.KafkaController)
+[2022-08-08 23:18:45,134] TRACE [Controller id=0] Leader imbalance ratio for broker 2 is 1.0 (kafka.controller.KafkaController)
+[2022-08-08 23:18:45,135] INFO [Controller id=0] Starting replica leader election (PREFERRED) for partitions  triggered by AutoTriggered (kafka.controller.KafkaController)
+[2022-08-08 23:23:45,135] INFO [Controller id=0] Processing automatic preferred replica leader election (kafka.controller.KafkaController)
+[2022-08-08 23:23:45,136] TRACE [Controller id=0] Checking need to trigger auto leader balancing (kafka.controller.KafkaController)
+[2022-08-08 23:23:45,136] DEBUG [Controller id=0] Topics not in preferred replica for broker 0 Map() (kafka.controller.KafkaController)
+[2022-08-08 23:23:45,136] TRACE [Controller id=0] Leader imbalance ratio for broker 0 is 0.0 (kafka.controller.KafkaController)
+[2022-08-08 23:23:45,137] DEBUG [Controller id=0] Topics not in preferred replica for broker 1 Map(ssl-topic-1 -> List(1)) (kafka.controller.KafkaController)
+[2022-08-08 23:23:45,137] TRACE [Controller id=0] Leader imbalance ratio for broker 1 is 1.0 (kafka.controller.KafkaController)
+[2022-08-08 23:23:45,137] INFO [Controller id=0] Starting replica leader election (PREFERRED) for partitions  triggered by AutoTriggered (kafka.controller.KafkaController)
+[2022-08-08 23:23:45,138] DEBUG [Controller id=0] Topics not in preferred replica for broker 2 Map(ssl-topic-0 -> List(2)) (kafka.controller.KafkaController)
+[2022-08-08 23:23:45,138] TRACE [Controller id=0] Leader imbalance ratio for broker 2 is 1.0 (kafka.controller.KafkaController)
+[2022-08-08 23:23:45,138] INFO [Controller id=0] Starting replica leader election (PREFERRED) for partitions  triggered by AutoTriggered (kafka.controller.KafkaController)
+[2022-08-08 23:26:38,928] INFO [Controller id=0] Newly added brokers: 1, deleted brokers: , bounced brokers: , all live brokers: 0,1 (kafka.controller.KafkaController)
+[2022-08-08 23:26:38,929] DEBUG [Channel manager on controller 0]: Controller 0 trying to connect to broker 1 (kafka.controller.ControllerChannelManager)
+[2022-08-08 23:26:38,967] INFO [ControllerEventThread controllerId=1] Starting (kafka.controller.ControllerEventManager$ControllerEventThread)
+[2022-08-08 23:26:38,976] DEBUG [Controller id=1] Broker 0 has been elected as the controller, so stopping the election process. (kafka.controller.KafkaController)
+[2022-08-08 23:26:39,031] INFO [RequestSendThread controllerId=0] Starting (kafka.controller.RequestSendThread)
+[2022-08-08 23:26:39,032] INFO [Controller id=0] New broker startup callback for 1 (kafka.controller.KafkaController)
+[2022-08-08 23:26:39,049] DEBUG [Controller id=0] Register BrokerModifications handler for List(1) (kafka.controller.KafkaController)
+[2022-08-08 23:26:39,051] INFO [Controller id=0] Updated broker epochs cache: HashMap(0 -> 554, 1 -> 592) (kafka.controller.KafkaController)
+[2022-08-08 23:26:39,389] INFO [RequestSendThread controllerId=0] Controller 0 connected to localhost:9093 (id: 1 rack: null) for sending state change requests (kafka.controller.RequestSendThread)
+[2022-08-08 23:26:55,171] INFO [Controller id=0] Newly added brokers: 2, deleted brokers: , bounced brokers: , all live brokers: 0,1,2 (kafka.controller.KafkaController)
+[2022-08-08 23:26:55,171] DEBUG [Channel manager on controller 0]: Controller 0 trying to connect to broker 2 (kafka.controller.ControllerChannelManager)
+[2022-08-08 23:26:55,210] INFO [ControllerEventThread controllerId=2] Starting (kafka.controller.ControllerEventManager$ControllerEventThread)
+[2022-08-08 23:26:55,222] DEBUG [Controller id=2] Broker 0 has been elected as the controller, so stopping the election process. (kafka.controller.KafkaController)
+[2022-08-08 23:26:55,272] INFO [RequestSendThread controllerId=0] Starting (kafka.controller.RequestSendThread)
+[2022-08-08 23:26:55,273] INFO [Controller id=0] New broker startup callback for 2 (kafka.controller.KafkaController)
+[2022-08-08 23:26:55,284] DEBUG [Controller id=0] Register BrokerModifications handler for List(2) (kafka.controller.KafkaController)
+[2022-08-08 23:26:55,286] INFO [Controller id=0] Updated broker epochs cache: HashMap(0 -> 554, 1 -> 592, 2 -> 624) (kafka.controller.KafkaController)
+[2022-08-08 23:26:55,676] INFO [RequestSendThread controllerId=0] Controller 0 connected to localhost:9094 (id: 2 rack: null) for sending state change requests (kafka.controller.RequestSendThread)
+[2022-08-08 23:28:45,138] INFO [Controller id=0] Processing automatic preferred replica leader election (kafka.controller.KafkaController)
+[2022-08-08 23:28:45,139] TRACE [Controller id=0] Checking need to trigger auto leader balancing (kafka.controller.KafkaController)
+[2022-08-08 23:28:45,139] DEBUG [Controller id=0] Topics not in preferred replica for broker 0 Map() (kafka.controller.KafkaController)
+[2022-08-08 23:28:45,139] TRACE [Controller id=0] Leader imbalance ratio for broker 0 is 0.0 (kafka.controller.KafkaController)
+[2022-08-08 23:28:45,139] DEBUG [Controller id=0] Topics not in preferred replica for broker 1 Map() (kafka.controller.KafkaController)
+[2022-08-08 23:28:45,139] TRACE [Controller id=0] Leader imbalance ratio for broker 1 is 0.0 (kafka.controller.KafkaController)
+[2022-08-08 23:28:45,139] DEBUG [Controller id=0] Topics not in preferred replica for broker 2 Map() (kafka.controller.KafkaController)
+[2022-08-08 23:28:45,139] TRACE [Controller id=0] Leader imbalance ratio for broker 2 is 0.0 (kafka.controller.KafkaController)
+[2022-08-08 23:33:45,140] INFO [Controller id=0] Processing automatic preferred replica leader election (kafka.controller.KafkaController)
+[2022-08-08 23:33:45,140] TRACE [Controller id=0] Checking need to trigger auto leader balancing (kafka.controller.KafkaController)
+[2022-08-08 23:33:45,141] DEBUG [Controller id=0] Topics not in preferred replica for broker 0 Map() (kafka.controller.KafkaController)
+[2022-08-08 23:33:45,141] TRACE [Controller id=0] Leader imbalance ratio for broker 0 is 0.0 (kafka.controller.KafkaController)
+[2022-08-08 23:33:45,141] DEBUG [Controller id=0] Topics not in preferred replica for broker 1 Map() (kafka.controller.KafkaController)
+[2022-08-08 23:33:45,141] TRACE [Controller id=0] Leader imbalance ratio for broker 1 is 0.0 (kafka.controller.KafkaController)
+[2022-08-08 23:33:45,142] DEBUG [Controller id=0] Topics not in preferred replica for broker 2 Map() (kafka.controller.KafkaController)
+[2022-08-08 23:33:45,142] TRACE [Controller id=0] Leader imbalance ratio for broker 2 is 0.0 (kafka.controller.KafkaController)

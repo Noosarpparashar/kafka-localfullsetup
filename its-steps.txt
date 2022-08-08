@@ -45,9 +45,9 @@ keytool -keystore kafka.broker2.keystore.jks -alias broker2 -import -file ca-sig
 
 +
 Add file zookeeper-client.properties
-AFter creating above keystore and trustore We need to run this file
+After creating above keystore and trustore We need to run this file
 
-Strat zookeeper
+Start zookeeper
 bin/zookeeper-shell.sh localhost:2182 -zk-tls-config-file config/zookeeper-client.properties
 Start kafka broker 1
 bin/kafka-server-start.sh config/server-1.properties
@@ -61,3 +61,5 @@ Send producer message
 
 Generate SASL credential for brokers,producers and consumers
 bin/kafka-configs.sh --zookeeper localhost:2182 --zk-tls-config-file config/zookeeper-client.properties --entity-type users -entity-name broker-admin --alter --add-config 'SCRAM-SHA-512=[password=94732496964]'
+
+MAke changes in server-0.properties
