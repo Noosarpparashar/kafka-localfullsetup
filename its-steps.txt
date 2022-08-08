@@ -51,10 +51,13 @@ Strat zookeeper
 bin/zookeeper-shell.sh localhost:2182 -zk-tls-config-file config/zookeeper-client.properties
 Start kafka broker 1
 bin/kafka-server-start.sh config/server-1.properties
-Stoip kafka broker
+Stop kafka broker
  bin/kafka-server-stop.sh config/server-0.properties
 
 CHeck list of topics
 
-SEnd producer message
+Send producer message
  bin/kafka-console-producer.sh --topic ssl-topic --producer.config config/producer.properties --broker-list localhost:9092,localhost:9093
+
+Generate SASL credential for brokers,producers and consumers
+bin/kafka-configs.sh --zookeeper localhost:2182 --zk-tls-config-file config/zookeeper-client.properties --entity-type users -entity-name broker-admin --alter --add-config 'SCRAM-SHA-512=[password=94732496964]'
