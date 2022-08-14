@@ -1,4 +1,4 @@
 # kafka-localfullsetup
 
 
-In this step and corresponding branch..Attempt was made to configure ssl encryption in local. Hwwever unable to create kafka topic..All the steps given in its-steps are correct though
+In  branch 2-Create-SSL-SCRAM-for-kafka  ..Attempt was made to configure ssl encryption in local. BY following steps given in its-steps one can configure kafka encyption perfectly
