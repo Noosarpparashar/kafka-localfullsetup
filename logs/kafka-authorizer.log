@@ -1,0 +1,3 @@
+[2022-08-14 12:28:33,241] INFO Principal = User:my-producer_consumer is Denied Operation = Describe from host = 127.0.0.1 on resource = Topic:LITERAL:ssl-topic for request = Metadata with resourceRefCount = 1 (kafka.authorizer.logger)
+[2022-08-14 12:28:33,243] INFO Principal = User:my-producer_consumer is Denied Operation = Describe from host = 127.0.0.1 on resource = Group:LITERAL:mycgraoup for request = FindCoordinator with resourceRefCount = 1 (kafka.authorizer.logger)
+[2022-08-14 12:30:51,235] INFO Principal = User:my-producer_consumer is Denied Operation = Describe from host = 127.0.0.1 on resource = Group:LITERAL:mycgroup for request = FindCoordinator with resourceRefCount = 1 (kafka.authorizer.logger)

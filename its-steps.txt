@@ -45,14 +45,19 @@ keytool -keystore kafka.broker2.keystore.jks -alias broker2 -import -file ca-sig
 
 +
 Add file zookeeper-client.properties
-AFter creating above keystore and trustore We need to run this file
+After creating above keystore and trustore We need to run this file
 
-Strat zookeeper
+Start zookeeper
+bin/zookeeper-server-start.sh  config/zookeeper.properties
+bin/zookeeper-server-start.sh -daemon config/zookeeper.properties
 bin/zookeeper-shell.sh localhost:2182 -zk-tls-config-file config/zookeeper-client.properties
 Start kafka broker 1
 bin/kafka-server-start.sh config/server-1.properties
 Stop kafka broker
  bin/kafka-server-stop.sh config/server-0.properties
+
+Create kafka-admin
+ bin/kafka-configs.sh --zookeeper localhost:2182 --zk-tls-config-file config/zookeeper-client.properties --entity-type users --entity-name kafka-admin --alter --add-config 'SCRAM-SHA-512=[password=9473249664]'
 
 CHeck list of topics
 
@@ -60,4 +65,44 @@ Send producer message
  bin/kafka-console-producer.sh --topic ssl-topic --producer.config config/producer.properties --broker-list localhost:9092,localhost:9093
 
 Generate SASL credential for brokers,producers and consumers
-bin/kafka-configs.sh --zookeeper localhost:2182 --zk-tls-config-file config/zookeeper-client.properties --entity-type users -entity-name broker-admin --alter --add-config 'SCRAM-SHA-512=[password=94732496964]'
+bin/kafka-configs.sh --zookeeper localhost:2182 --zk-tls-config-file config/zookeeper-client.properties --entity-type users -entity-name broker-admin --alter --add-config 'SCRAM-SHA-512=[password=9473249664]'
+bin/kafka-configs.sh --zookeeper localhost:2182 --zk-tls-config-file config/zookeeper-client.properties --entity-type users --entity-name kafka-admin --alter --add-config 'SCRAM-SHA-512=[password=9473249664]'
+
+bin/kafka-acls.sh --authorizer-properties zookeeper.connect=localhost:2182 --zk-tls-config-file config/zookeeper-client.properties --add --allow-principal User:kafka-admin --operation READ --operation WRITE --operation DESCRIBE --operation DESCRIBECONFIGS --operation ALTER --operation ALTERCONFIGS --operation CREATE --operation DELETE --topic '*'
+bin/kafka-acls.sh --authorizer-properties zookeeper.connect=localhost:2182 --zk-tls-config-file config/zookeeper-client.properties --add --allow-principal User:kafka-admin --operation READ --operation WRITE --operation DESCRIBE --operation DESCRIBECONFIGS --operation ALTER --operation ALTERCONFIGS --operation CREATE --operation DELETE --topic '*'
+bin/kafka-acls.sh --authorizer-properties zookeeper.connect=localhost:2182 --zk-tls-config-file config/zookeeper-client.properties --add --allow-principal User:kafka-admin --operation READ --operation DESCRIBE --operation DELETE --group '*'
+bin/kafka-acls.sh --authorizer-properties zookeeper.connect=localhost:2182 --zk-tls-config-file config/zookeeper-client.properties --add --allow-principal User:kafka-admin --operation DESCRIBE --delegation-token '*'
+bin/kafka-acls.sh --authorizer-properties zookeeper.connect=localhost:2182 --zk-tls-config-file config/zookeeper-client.properties --add --allow-principal User:kafka-admin --operation DESCRIBE --operation WRITE --transactional-id '*'
+bin/kafka-acls.sh --authorizer-properties zookeeper.connect=localhost:2182 --zk-tls-config-file config/zookeeper-client.properties --add --allow-principal User:kafka-admin --operation ALTER --operation ALTERCONFIGS --operation CLUSTERACTION --operation CREATE --operation DESCRIBE --operation DESCRIBECONFIGS --operation IDEMPOTENTWRITE --cluster 0iS5XCr2ShmAQXsEKOSe-A
+
+
+Create kafka topic
+bin/kafka-topics.sh --bootstrap-server localhost:9092,localhost:9093,localhost:9094 --command-config config/kafka-admin.properties --create --topic my-topic --partitions 2 --replication-factor 3 --config min.insync.replicas=2
+
+
+//Create sasl/scrma user my-producer_consumer
+bin/kafka-configs.sh --zookeeper localhost:2182 --zk-tls-config-file config/zookeeper-client.properties --entity-type users --entity-name my-producer_consumer --alter --add-config 'SCRAM-SHA-512=[password=9473249664]'
+
+//Describe that producer-consumer
+bin/kafka-configs.sh --zookeeper localhost:2182 --zk-tls-config-file config/zookeeper-client.properties --entity-type users --entity-name my-producer_consumer --describe
+//Describe-List Available sasl/scram users
+bin/kafka-configs.sh --zookeeper localhost:2182 --zk-tls-config-file config/zookeeper-client.properties --entity-type users --describe
+
+//To delete a SASL/SCRAM user
+#kafka-configs.sh --zookeeper localhost:2182 --zk-tls-config-file zookeeper-client.properties --entity-type users --entity-name my-user --alter --delete-config #'SCRAM-SHA-512'
+
+/Grant producer access to that topic
+bin/kafka-acls.sh --authorizer-properties zookeeper.connect=localhost:2182 --zk-tls-config-file config/zookeeper-client.properties --add --allow-principal User:my-producer_consumer --operation WRITE --operation DESCRIBE --operation DESCRIBECONFIGS --topic my-topic
+
+//To grant CONSUMER access for the user to the topic mytopic and with consumer group mycgroup
+bin/kafka-acls.sh --authorizer-properties zookeeper.connect=localhost:2182 --zk-tls-config-file config/zookeeper-client.properties --add --allow-principal User:my-producer_consumer --operation READ --operation DESCRIBE --topic my-topic
+bin/kafka-acls.sh --authorizer-properties zookeeper.connect=localhost:2182 --zk-tls-config-file config/zookeeper-client.properties --add --allow-principal User:my-producer_consumer --group my-producer_consumer --operation READ
+
+//To list all the ACLs associated with the user
+bin/kafka-acls.sh --authorizer-properties zookeeper.connect=localhost:2182 --zk-tls-config-file config/zookeeper-client.properties --list --principal User:my-producer_consumer
+
+//Producer message to topic
+bin/kafka-console-producer.sh --broker-list localhost:9092,localhost:9093 --topic my-topic --producer.config config/producer.properties
+
+//Consumer message from topic
+bin/kafka-console-consumer.sh --bootstrap-server localhost:9092,localhost:9093 --topic my-topic --consumer.config config/consumer.properties --from-beginning
