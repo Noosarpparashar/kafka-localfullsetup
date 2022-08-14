@@ -48,11 +48,16 @@ Add file zookeeper-client.properties
 After creating above keystore and trustore We need to run this file
 
 Start zookeeper
+bin/zookeeper-server-start.sh  config/zookeeper.properties
+bin/zookeeper-server-start.sh -daemon config/zookeeper.properties
 bin/zookeeper-shell.sh localhost:2182 -zk-tls-config-file config/zookeeper-client.properties
 Start kafka broker 1
 bin/kafka-server-start.sh config/server-1.properties
 Stop kafka broker
  bin/kafka-server-stop.sh config/server-0.properties
+
+Create kafka-admin
+ bin/kafka-configs.sh --zookeeper localhost:2182 --zk-tls-config-file config/zookeeper-client.properties --entity-type users --entity-name kafka-admin --alter --add-config 'SCRAM-SHA-512=[password=9473249664]'
 
 CHeck list of topics
 
