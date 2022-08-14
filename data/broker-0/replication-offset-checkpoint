@@ -1,5 +1,23 @@
 0
-3
+21
+__consumer_offsets 0 0
+__consumer_offsets 6 0
+__consumer_offsets 30 0
+my-topic 0 2
+__consumer_offsets 18 0
+__consumer_offsets 21 0
+__consumer_offsets 48 0
+__consumer_offsets 33 0
 ssl-topic 2 0
-my-topic 0 0
-my-topic 1 0
+my-topic 1 2
+__consumer_offsets 24 0
+__consumer_offsets 3 0
+__consumer_offsets 27 0
+__consumer_offsets 42 8
+__consumer_offsets 39 0
+my_topic 1 0
+__consumer_offsets 15 0
+__consumer_offsets 36 0
+__consumer_offsets 45 0
+__consumer_offsets 9 0
+__consumer_offsets 12 0
